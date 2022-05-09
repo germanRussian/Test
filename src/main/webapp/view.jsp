@@ -41,7 +41,7 @@ try {
 	//SQL
 	stmt = conn.prepareStatement(sql.toString());
 	//값 설정(쿼리 문 '?'에 들어 갈 값)
-	stmt.setString(1, (String) session.getAttribute("sessId"));
+	stmt.setString(1, num);
 	// 출력
 	rs = stmt.executeQuery();
 
@@ -78,7 +78,7 @@ try {
 	홈화면 > 게시판 글 상세보기
 	<hr>
 	<form action="update.jsp" method="post">
-		<input type="" name="num" id="num">
+		<input type="" name="num" id="num" value="5">
 		<div>
 			<span>제목</span><br>
 			<input style="width: 500px" type="text" name="title" <%=title %>>

@@ -29,7 +29,7 @@
 			</div>
 			<br>
 			<button>수정하기</button>
-			<button onclick="location.href=list.jsp">목록</button>
+			<button  onclick="location.href= list.jsp" >목록</button>
 		</form>
 </body>
 </html>
