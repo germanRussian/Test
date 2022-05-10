@@ -3,6 +3,8 @@
 <%@page import="java.util.*"%>
 <%@page import="java.util.List"%>
 <%@page import="java.sql.*"%>
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -17,18 +19,23 @@ Connection conn = null;
 PreparedStatement stmt = null;
 ResultSet rs = null;
 
+StringBuffer sql = new StringBuffer();
+sql.append(" SELECT num, title, writer, writeDate FROM board ");
+/* sql.append(" WHERE writer  "); */
+sql.append(" order by num desc");
+
 ArrayList<BoardVO> list = new ArrayList<BoardVO>();
 
 try {
 
-	StringBuffer sql = new StringBuffer();
-	sql.append(" SELECT num, title, writer, writeDate FROM board ");
-	/* sql.append(" WHERE writer  "); */
-	sql.append(" order by num desc");
-
+	
+	//드라이버로드
 	Class.forName("com.mysql.cj.jdbc.Driver");
+	//연결
 	conn = DriverManager.getConnection(url, user, password);
+	//SQL
 	stmt = conn.prepareStatement(sql.toString());
+	// 출력
 	rs = stmt.executeQuery();
 
 	while (rs.next()) {
@@ -88,19 +95,17 @@ try {
 			%>
 			<tr>
 				<th><%=vo.getNum()%></th>
-				<th><a href="view.jsp"><%=vo.getTitle()%></a></th>
+				<th><a href="view.jsp?num=<%=vo.getNum()%>"><%=vo.getTitle()%></a></th>
 				<th><%=vo.getWriter()%></th>
 				<th><%=vo.getWriteDate()%></th>
 			</tr>
 			<%
 			}
 			}
-			%>
-		
-		<tbody>
-
+		%>		
 		</tbody>
 	</table>
-
+	<button onclick="location.href='writer.jsp'">글 작성하기</button>
+	
 </body>
 </html>

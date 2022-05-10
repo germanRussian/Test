@@ -15,17 +15,18 @@
 
 		<div>
 			<span>제목 : </span>
-			<input style="width: 500px; border: 0 solid black" type="text" name="title">
+			<input style="width: 450px; border: 0 solid black" type="text" name="title">
 		</div>
 		<hr>
 		<div>
 			<span>내용</span><br>
-			<input style="height: 500px; width: 500px" type="text" name="content">
+			<textarea rows="10" cols="100"  name="content"></textarea>
+			
 		</div>
 		<hr>
 		<div>
 			<span>작성자 : </span>
-			<input style="width: 500px; border: 0 solid black" type="text" name="writer">
+			<input style="width: 450px; border: 0 solid black" type="text" name="writer">
 		</div>
 		<br>
 		<button>글 쓰 기</button>

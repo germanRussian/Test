@@ -22,10 +22,10 @@ Connection conn = null;
 PreparedStatement stmt = null;
 ResultSet rs = null;
 
-String num3 = "";
-String title3 = "";
-String content3 = "";
-String writer3 = "";
+String num2 = "";
+String title2 = "";
+String content2 = "";
+String writer2 = "";
 
 /* DB정보를 가져와서 화면에 출력*/
 try {
@@ -43,10 +43,10 @@ try {
 	/* 한건에 해당하는 것만 내용을 가져올 것이기 때문에 if문 사용 while문은 여러건을 가져올때.*/
 	if (rs.next()) {
 
-		num3 = rs.getString("num");
-		title3 = rs.getString("title");
-		content3 = rs.getString("content");
-		writer3 = rs.getString("writer");
+		num2 = rs.getString("num");
+		title2 = rs.getString("title");
+		content2 = rs.getString("content");
+		writer2 = rs.getString("writer");
 
 	}
 } catch (Exception e) {
@@ -76,26 +76,27 @@ try {
 		<form action="updateAct.jsp" method="post">
 			<div>
 				<span> 게시글 번호</span> <input type="" name="num" id="num"
-					value="<%=num3%>" style="border: 0 solid black" readonly="readonly">
+					value="<%=num2%>" style="border: 0 solid black" readonly="readonly">
 			</div>
 			<div>
 				<span>제목 : </span> <input
-					style="width: 500px; border: 0 solid black" type="text"
-					name="title" value="<%=title3%>">
+					style="width: 450px; border: 0 solid black" type="text"
+					name="title" value="<%=title2%>">
 			</div>
 			<hr>
 			<div>
-				<span>내용</span><br> <input style="height: 500px; width: 500px"
-					type="text" name="content" value="<%=content3%>">
+				<span>내용</span><br> <textarea rows="10" cols="100"  name="content" ><%=content2%></textarea>
 			</div>
 			<hr>
 			<div>
-				<span>작성자</span> <input style="width: 500px; border: 0 solid black" type="text"
-					name="writer" value="<%=writer3%>" readonly="readonly">
+				<span>작성자</span> <input style="width: 450px; border: 0 solid black"
+					type="text" name="writer" value="<%=writer2%>" readonly="readonly">
 			</div>
 			<br>
 			<button>수정하기</button>
-			<button onclick="location.href= list.jsp">목록</button>
 		</form>
+		<br>
+			<br>
+			<button onclick="location.href='list.jsp'">목록</button>
 </body>
 </html>
