@@ -1,4 +1,5 @@
-<%@page import="java.awt.datatransfer.Clipboard"%>
+
+<%@page import="domain.BoardVO"%>
 <%@page import="java.util.*"%>
 <%@page import="java.util.List"%>
 <%@page import="java.sql.*"%>
@@ -12,50 +13,36 @@ String url = "jdbc:mysql://localhost:3306/smart?characterEncoding=UTF-8&serverTi
 String user = "root";
 String password = "smart";
 
-
-
 Connection conn = null;
 PreparedStatement stmt = null;
 ResultSet rs = null;
 
-
-
-ArrayList<boardVO> list = new ArrayList<boardVO>();
-
-
+ArrayList<BoardVO> list = new ArrayList<BoardVO>();
 
 try {
-	
-	
+
 	StringBuffer sql = new StringBuffer();
 	sql.append(" SELECT num, title, writer, writeDate FROM board ");
 	/* sql.append(" WHERE writer  "); */
 	sql.append(" order by num desc");
-	
-	
-	
+
 	Class.forName("com.mysql.cj.jdbc.Driver");
 	conn = DriverManager.getConnection(url, user, password);
 	stmt = conn.prepareStatement(sql.toString());
 	rs = stmt.executeQuery();
-	
-	
-	
+
 	while (rs.next()) {
-		
-		boardVO vo = new boardVO();
-		
-		
+
+		BoardVO vo = new BoardVO();
+
 		vo.setNum(rs.getInt("num"));
 		vo.setTitle(rs.getString("title"));
 		vo.setWriter(rs.getString("writer"));
 		vo.setWriteDate(rs.getTimestamp("writeDate"));
 		list.add(vo);
-		
-		
+
 	}
-	
-	
+
 } catch (Exception e) {
 	// TODO Auto-generated catch block
 	e.printStackTrace();
@@ -93,18 +80,23 @@ try {
 			</tr>
 		</thead>
 		<tbody>
-		<%
-		{
-		Iterator<boardVO> it = list.iterator();
-		while (it.hasNext()) {
-			boardVO vo = it.next();
-		%>
-			<%=vo.getNum()%><%=vo.getContent()%><%=vo.getWriter()%><%=vo.getWriteDate()%>
-				
-		<%
-		}
-		}
-		%>
+			<%
+			{
+				Iterator<BoardVO> it = list.iterator();
+				while (it.hasNext()) {
+					BoardVO vo = it.next();
+			%>
+			<tr>
+				<th><%=vo.getNum()%></th>
+				<th><a href="view.jsp"><%=vo.getTitle()%></a></th>
+				<th><%=vo.getWriter()%></th>
+				<th><%=vo.getWriteDate()%></th>
+			</tr>
+			<%
+			}
+			}
+			%>
+		
 		<tbody>
 
 		</tbody>

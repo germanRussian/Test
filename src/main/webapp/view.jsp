@@ -4,7 +4,6 @@
 
 <%
 /* DB연결 */
-
 request.setCharacterEncoding("utf-8");
 
 String num = request.getParameter("num");
@@ -12,25 +11,30 @@ String title = request.getParameter("title");
 String content = request.getParameter("content");
 String writer = request.getParameter("writer");
 
+
+
 String url = "jdbc:mysql://localhost:3306/smart?characterEncoding=UTF-8&serverTimezone=Asia/Seoul";
 String user = "root";
 String password = "smart";
+
 
 StringBuffer sql = new StringBuffer();
 sql.append(" SELECT *  FROM board");
 sql.append(" where num = ? ");
 
+
+
 Connection conn = null;
 PreparedStatement stmt = null;
 ResultSet rs = null;
 
-/* 
-String num = "";
-String title = "";
-String content = "";
-String writer = "";
 
- */
+
+String num1 = "";
+String title1 = "";
+String content1 = "";
+String writer1 = "";
+
 
 /* DB정보를 가져와서 화면에 출력*/
 try {
@@ -44,19 +48,15 @@ try {
 	stmt.setString(1, num);
 	// 출력
 	rs = stmt.executeQuery();
-
 	/* 한건에 해당하는 것만 내용을 가져올 것이기 때문에 if문 사용 while문은 여러건을 가져올때.*/
 	if (rs.next()) {
-
-		num = rs.getString("num");
-		title = rs.getString("title");
-		content = rs.getString("content");
-		writer = rs.getString("writer");
-
+		num1 = rs.getString("num");
+		title1 = rs.getString("title");
+		content1 = rs.getString("content");
+		writer1 = rs.getString("writer");
 	}
 } catch (Exception e) {
 	e.getLocalizedMessage();
-
 } finally {
 	//닫기
 	if (rs != null)
@@ -65,7 +65,6 @@ try {
 		stmt.close();
 	if (conn != null)
 		conn.close();
-
 }
 %>
 <!DOCTYPE html>
@@ -78,22 +77,26 @@ try {
 	홈화면 > 게시판 글 상세보기
 	<hr>
 	<form action="update.jsp" method="post">
-		<input type="" name="num" id="num" value="5">
 		<div>
-			<span>제목</span><br>
-			<input style="width: 500px" type="text" name="title" <%=title %>>
-		</div>
-		<hr>
-		<div>
-			<span>내용</span><br>
-			<input style="height: 500px; width: 500px" type="text" name="content"<%=content %>>
-		</div>
-		<hr>
-		<div>
-			<span>작성자</span><br>
-			<input style="width: 500px" type="text" name="writer" <%=writer %>>
-		</div>
-		<br>
+				<span> 게시글 번호</span> <input type="" name="num" id="num"
+					value="<%=num1%>" style="border: 0 solid black" readonly="readonly">
+			</div>
+			<div>
+				<span>제목 : </span> <input
+					style="width: 500px; border: 0 solid black" type="text"
+					name="title" value="<%=title1%>">
+			</div>
+			<hr>
+			<div>
+				<span>내용</span><br> <input style="height: 500px; width: 500px"
+					type="text" name="content" value="<%=content1%>">
+			</div>
+			<hr>
+			<div>
+				<span>작성자</span> <input style="width: 500px; border: 0 solid black" type="text"
+					name="writer" value="<%=writer1%>" readonly="readonly">
+			</div>
+			<br>
 		<button >글 수정</button>
 		
 

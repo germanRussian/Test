@@ -1,7 +1,8 @@
+package domain;
 import java.sql.Timestamp;
 
 
-public class boardVO {
+public class BoardVO {
 	
 	private int num;
 	private String title;
@@ -11,7 +12,7 @@ public class boardVO {
 	
 	
 	
-	public boardVO(int num, String title, String content, String writer, Timestamp writeDate) {
+	public BoardVO(int num, String title, String content, String writer, Timestamp writeDate) {
 		super();
 		this.num = num;
 		this.title = title;
@@ -25,7 +26,7 @@ public class boardVO {
 	
 	
 	
-	public boardVO() {
+	public BoardVO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
