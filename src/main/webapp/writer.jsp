@@ -29,7 +29,7 @@
 			<input style="width: 450px; border: 0 solid black" type="text" name="writer">
 		</div>
 		<br>
-		<button>글 쓰 기</button>
+		<button>글 쓰 기.</button>
 	</form>
 </body>
 </html>

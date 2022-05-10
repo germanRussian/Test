@@ -75,7 +75,7 @@ try {
 	<table border="1">
 		<form action="updateAct.jsp" method="post">
 			<div>
-				<span> 게시글 번호</span> <input type="" name="num" id="num"
+				<!-- <span> 게시글 번호</span> --> <input type="hidden" name="num" id="num"
 					value="<%=num2%>" style="border: 0 solid black" readonly="readonly">
 			</div>
 			<div>
