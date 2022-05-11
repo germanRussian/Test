@@ -28,7 +28,7 @@ String password = "smart";
 
 
 StringBuffer sql = new StringBuffer();
-sql.append(" INSERT INTO board (num, title, content, writer, writeDate)");
+sql.append(" INSERT INTO board (num, title, content, writer, writerDate)");
 sql.append(" VALUES (null, ?, ?, ?, now()) ");
 
 

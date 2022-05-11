@@ -24,7 +24,7 @@ PreparedStatement stmt = null;
 ResultSet rs = null;
 
 StringBuffer sql = new StringBuffer();
-sql.append(" SELECT num, title, writer, writeDate FROM board ");
+sql.append(" SELECT num, title, writer, writerDate FROM board ");
 /* sql.append(" WHERE writer  "); */
 sql.append(" order by num desc");
 
@@ -49,7 +49,7 @@ try {
 		vo.setNum(rs.getInt("num"));
 		vo.setTitle(rs.getString("title"));
 		vo.setWriter(rs.getString("writer"));
-		vo.setWriteDate(rs.getTimestamp("writeDate"));
+		vo.setWriterDate(rs.getTimestamp("writerDate"));
 		list.add(vo);
 
 	}
@@ -101,7 +101,7 @@ try {
 				<th><%=vo.getNum()%></th>
 				<th><a href="view.jsp?num=<%=vo.getNum()%>"><%=vo.getTitle()%></a></th>
 				<th><%=vo.getWriter()%></th>
-				<th><%=vo.getWriteDate()%></th>
+				<th><%=vo.getWriterDate()%></th>
 			</tr>
 			<%
 			}

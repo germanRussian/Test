@@ -8,34 +8,10 @@ public class BoardVO {
 	private String title;
 	private String content;
 	private String writer;
-	private Timestamp writeDate;
+	private Timestamp writerDate;
 	
 	
 	
-	public BoardVO(int num, String title, String content, String writer, Timestamp writeDate) {
-		super();
-		this.num = num;
-		this.title = title;
-		this.content = content;
-		this.writer = writer;
-		this.writeDate = writeDate;
-	}
-	
-	
-	
-	
-	
-	
-	public BoardVO() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-
-
-
-
-
 	public int getNum() {
 		return num;
 	}
@@ -60,15 +36,24 @@ public class BoardVO {
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
-	public Timestamp getWriteDate() {
-		return writeDate;
+	public Timestamp getWriterDate() {
+		return writerDate;
 	}
-	public void setWriteDate(Timestamp writeDate) {
-		this.writeDate = writeDate;
+	public void setWriterDate(Timestamp writerDate) {
+		this.writerDate = writerDate;
 	}
 	
 	
 	
+	
+	
+	
+	
+	
+
+
+
+
 	
 
 }

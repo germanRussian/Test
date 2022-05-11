@@ -23,7 +23,7 @@ String password = "smart";
 
 
 StringBuffer sql = new StringBuffer();
-sql.append(" UPDATE board SET title = ?, content = ?, writer = ?, writeDate = (now()) ");
+sql.append(" UPDATE board SET title = ?, content = ?, writer = ?, writerDate = (now()) ");
 sql.append(" where num = ? ");
 
 
