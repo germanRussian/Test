@@ -6,9 +6,9 @@
 request.setCharacterEncoding("utf-8");
 
 String num = request.getParameter("num");
-String title = request.getParameter("title");
+/* String title = request.getParameter("title");
 String content = request.getParameter("content");
-String writer = request.getParameter("writer");
+String writer = request.getParameter("writer"); */
 
 String url = "jdbc:mysql://localhost:3306/smart?characterEncoding=UTF-8&serverTimezone=Asia/Seoul";
 String user = "root";
@@ -72,7 +72,7 @@ try {
 <body>
 	홈화면 > 게시판 수정하기
 	<hr>
-	<table border="1">
+	<table border="">
 		<form action="updateAct.jsp" method="post">
 			<div>
 				<!-- <span> 게시글 번호</span> --> <input type="hidden" name="num" id="num"

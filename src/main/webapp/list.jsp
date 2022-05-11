@@ -11,6 +11,10 @@
 
 
 <%
+
+request.setCharacterEncoding("UTF-8");
+
+
 String url = "jdbc:mysql://localhost:3306/smart?characterEncoding=UTF-8&serverTimezone=Asia/Seoul";
 String user = "root";
 String password = "smart";

@@ -31,10 +31,10 @@ sql.append(" SELECT *  FROM board");
 sql.append(" where num = ? "); 
 
 
-String num2 = "";
-String title2 = "";
-String content2 = "";
-String writer2 = "";
+String num1 = "";
+String title1 = "";
+String content1 = "";
+String writer1 = "";
 
 
 /* DB정보를 가져와서 화면에 출력*/
@@ -59,10 +59,10 @@ try {
 	/* 한건에 해당하는 것만 내용을 가져올 것이기 때문에 if문 사용 while문은 여러건을 가져올때.*/
 	if (rs.next()) {
 		
-		num2 = rs.getString("num");
-		title2 = rs.getString("title");
-		content2 = rs.getString("content");
-		writer2 = rs.getString("writer");
+		num1 = rs.getString("num");
+		title1 = rs.getString("title");
+		content1 = rs.getString("content");
+		writer1 = rs.getString("writer");
 		
 		
 		/* vo = new BoardVO();
@@ -101,24 +101,24 @@ try {
 	
 		<div>
 			<!-- <span> 게시글 번호</span> --> <input type="hidden" name="num" id="num"
-				value="<%=num2%>" style="border: 0 solid black"
+				value="<%=num1%>" style="border: 0 solid black"
 				readonly="readonly">
 		</div>
 		<div>
 			<span>제목 : </span> <input style="width: 450px; border: 0 solid black"
-				type="text" name="title" value="<%=title2%>" readonly="readonly">
+				type="text" name="title" value="<%=title1%>" readonly="readonly">
 		</div>
 		<hr>
 		<div>
 			<span>내용</span><br> 
-			<textarea rows="10" cols="100"  name="content" readonly="readonly"><%=content2%></textarea>
+			<textarea rows="10" cols="100"  name="content" readonly="readonly"><%=content1%></textarea>
 			
 			
 		</div>
 		<hr>
 		<div>
 			<span>작성자</span> <input style="width: 450px; border: 0 solid black"
-				type="text" name="writer" value="<%=writer2%>"	readonly="readonly">
+				type="text" name="writer" value="<%=writer1%>"	readonly="readonly">
 		</div>
 		
 		<br>
